@@ -9,6 +9,9 @@ public class SizeManager : MonoBehaviour
     [SerializeField]
     float speed = 2, minSize = 0.1f, maxSize = 4f;
 
+    [SerializeField]
+    float maxMultiplyer = 8f, handOffset = 0.5f;
+
     Vector3 miniVector, maxiVector;
     public Vector3 targetVector;
 
@@ -21,6 +24,8 @@ public class SizeManager : MonoBehaviour
 
     Vector3 orginalHandPos;
     Transform handPos;
+
+    float defaultSpeed, defaultJump,defaultMass,defaultStrengthM;
 
     void OnEnable()
     {
@@ -38,6 +43,12 @@ public class SizeManager : MonoBehaviour
 
         handPos = grabAction.gameObject.transform;
         orginalHandPos = handPos.localPosition;
+
+        defaultSpeed = moveController.speed;
+        defaultJump = jumpController.jumpForce;
+        defaultMass = rig.mass;
+
+        defaultStrengthM = grabAction.strengthMultiplier;
 
         ChangeSize(0);
     }
@@ -59,32 +70,32 @@ public class SizeManager : MonoBehaviour
             jumpController.jumpForce = 15f;
             grabAction.sizeMultiplier = minSize;
             grabAction.strengthMultiplier = 2f;
-            rig.mass = 72.5f*minSize;
-            moveController.speed = 50000f * minSize;
+            rig.mass = defaultMass * minSize;
+            moveController.speed = (defaultSpeed/2) * minSize;
 
-            handPos.localPosition = new Vector3(orginalHandPos.x, orginalHandPos.y, orginalHandPos.z + 0.5f);
+            handPos.localPosition = new Vector3(orginalHandPos.x, orginalHandPos.y, orginalHandPos.z + handOffset);
         }
         else if(state == 1)
         {
             targetVector = Vector3.one;
-            jumpController.jumpForce = 500f;
+            jumpController.jumpForce = defaultJump;
             grabAction.sizeMultiplier = 1;
-            grabAction.strengthMultiplier = 5;
-            rig.mass = 72.5f;
-            moveController.speed = 50000f;
+            grabAction.strengthMultiplier = defaultStrengthM;
+            rig.mass = defaultMass;
+            moveController.speed = defaultSpeed;
 
             handPos.localPosition = new Vector3(orginalHandPos.x, orginalHandPos.y, orginalHandPos.z);
         }
         else
         {
             targetVector = maxiVector;
-            jumpController.jumpForce = 500f * 8;
-            grabAction.sizeMultiplier = 8;
-            grabAction.strengthMultiplier = 5 * 8;
-            rig.mass = 72.5f * 4;
-            moveController.speed = 50000f * 8;
+            jumpController.jumpForce = defaultJump * maxMultiplyer;
+            grabAction.sizeMultiplier = maxMultiplyer;
+            grabAction.strengthMultiplier = defaultStrengthM * maxMultiplyer;
+            rig.mass = defaultMass * (maxMultiplyer/2);
+            moveController.speed = defaultSpeed * maxMultiplyer;
 
-            handPos.localPosition = new Vector3(orginalHandPos.x, orginalHandPos.y, orginalHandPos.z + 0.5f);
+            handPos.localPosition = new Vector3(orginalHandPos.x, orginalHandPos.y, orginalHandPos.z + handOffset);
         }
     }
 
