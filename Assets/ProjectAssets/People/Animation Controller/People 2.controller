@@ -108,7 +108,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 5909085888779700761}
-    m_Position: {x: 224.59186, y: 254.83836, z: 0}
+    m_Position: {x: 220, y: 250, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2387128962944709777}
     m_Position: {x: 400, y: 170, z: 0}
@@ -143,7 +143,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -186,7 +186,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Texting
+  m_Name: Wave
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -200,7 +200,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1ff1d15fab94044f38cbdce9d73ba483, type: 2}
+  m_Motion: {fileID: 7400000, guid: 98ce01636c41d4444a0452135c9d5927, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -213,7 +213,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BreathingIdle
+  m_Name: Clap
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -227,7 +227,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f1e69e8a7cc3a4de7b0fbdcbe5bd3dbd, type: 2}
+  m_Motion: {fileID: 7400000, guid: d0696362ff312498aad54501040e1c63, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
